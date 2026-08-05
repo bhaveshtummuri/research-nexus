@@ -1,0 +1,87 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Lint, typecheck, test, build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.11.0'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+  # Runs the suites that need a live Bolt endpoint. They are skipped in the job
+  # above (no database reachable) and executed here against a real engine, so
+  # every Cypher statement is exercised on every push.
+  integration:
+    name: Graph queries against a live database
+    runs-on: ubuntu-latest
+
+    services:
+      graph:
+        image: neo4j:5-community
+        env:
+          NEO4J_AUTH: neo4j/research-nexus
+        ports:
+          - 7687:7687
+          - 7474:7474
+        options: >-
+          --health-cmd "wget -qO- http://localhost:7474 || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 20
+          --health-start-period 30s
+
+    env:
+      COGNODB_URI: bolt://localhost:7687
+      COGNODB_USERNAME: neo4j
+      COGNODB_PASSWORD: research-nexus
+      SEED_RANDOM_SEED: research-nexus-ci
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.11.0'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Apply constraints and indexes
+        run: npm run db:schema
+
+      - name: Seed the graph
+        run: npm run db:seed
+
+      - name: Run integration tests
+        run: npm test --workspace server

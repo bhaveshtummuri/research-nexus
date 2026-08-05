@@ -1,0 +1,604 @@
+{
+  "generatedWith": {
+    "seed": "research-nexus-2024",
+    "counts": {
+      "authors": 300,
+      "papers": 600,
+      "universities": 50,
+      "topics": 100,
+      "keywords": 150,
+      "conferences": 40,
+      "journals": 30,
+      "datasets": 40,
+      "fundingAgencies": 25,
+      "projects": 80
+    }
+  },
+  "totals": {
+    "nodes": 1415,
+    "relationships": 14697
+  },
+  "breakdown": {
+    "nodes": [
+      {
+        "label": "Author",
+        "count": 300
+      },
+      {
+        "label": "Paper",
+        "count": 600
+      },
+      {
+        "label": "University",
+        "count": 50
+      },
+      {
+        "label": "ResearchTopic",
+        "count": 100
+      },
+      {
+        "label": "Keyword",
+        "count": 150
+      },
+      {
+        "label": "Conference",
+        "count": 40
+      },
+      {
+        "label": "Journal",
+        "count": 30
+      },
+      {
+        "label": "Dataset",
+        "count": 40
+      },
+      {
+        "label": "FundingAgency",
+        "count": 25
+      },
+      {
+        "label": "Project",
+        "count": 80
+      }
+    ],
+    "relationships": [
+      {
+        "type": "AUTHORED",
+        "count": 2445
+      },
+      {
+        "type": "CITES",
+        "count": 3471
+      },
+      {
+        "type": "AFFILIATED_WITH",
+        "count": 355
+      },
+      {
+        "type": "HAS_TOPIC",
+        "count": 1973
+      },
+      {
+        "type": "HAS_KEYWORD",
+        "count": 2439
+      },
+      {
+        "type": "PUBLISHED_IN",
+        "count": 281
+      },
+      {
+        "type": "PRESENTED_AT",
+        "count": 319
+      },
+      {
+        "type": "USES_DATASET",
+        "count": 665
+      },
+      {
+        "type": "FUNDS",
+        "count": 165
+      },
+      {
+        "type": "RELATED_TO",
+        "count": 2132
+      },
+      {
+        "type": "INCLUDES",
+        "count": 316
+      },
+      {
+        "type": "PARTNERS_WITH",
+        "count": 136
+      }
+    ]
+  },
+  "nodes": {
+    "authors": [
+      {
+        "id": "author-0001",
+        "name": "Dmitri Patel",
+        "title": "Associate Professor",
+        "email": "dmitri-patel@university-of-vienna.edu",
+        "orcid": "0000-1414-6056-8436",
+        "primaryField": "Artificial Intelligence",
+        "careerStartYear": 2000,
+        "researchStatement": "Bridges experimental and computational approaches to artificial intelligence using large-scale empirical evaluation.",
+        "hIndex": 0,
+        "citationCount": 0,
+        "paperCount": 0,
+        "searchText": "dmitri patel associate professor artificial intelligence"
+      },
+      {
+        "id": "author-0002",
+        "name": "Beatriz Oliveira",
+        "title": "PhD Candidate",
+        "email": "beatriz-oliveira@inria.edu",
+        "orcid": "0000-9819-7021-4097",
+        "primaryField": "Climate Science",
+        "careerStartYear": 2021,
+        "researchStatement": "Leads a laboratory focused on climate science in collaboration with industry and public-sector partners.",
+        "hIndex": 0,
+        "citationCount": 0,
+        "paperCount": 0,
+        "searchText": "beatriz oliveira phd candidate climate science"
+      },
+      {
+        "id": "author-0003",
+        "name": "Beatriz Silva",
+        "title": "Research Scientist",
+        "email": "beatriz-silva@california-institute-of-.edu",
+        "orcid": "0000-4518-2290-8843",
+        "primaryField": "Artificial Intelligence",
+        "careerStartYear": 2015,
+        "researchStatement": "Bridges experimental and computational approaches to artificial intelligence with an emphasis on reproducibility and open tooling.",
+        "hIndex": 0,
+        "citationCount": 0,
+        "paperCount": 0,
+        "searchText": "beatriz silva research scientist artificial intelligence"
+      }
+    ],
+    "papers": [
+      {
+        "id": "paper-0001",
+        "title": "Supply Chain Integrity at Scale: A Systematic Review",
+        "abstract": "Progress in Supply Chain Integrity is limited by evaluation protocols that do not transfer between laboratories. The method replaces hand-tuned heuristics with a learned component trained under an explicit homomorphic encryption objective. The framework recovers known results on 10 benchmarks and surfaces two effects that prior protocols could not detect. Our analysis identifies which design decisions actually drive performance in Supply Chain Integrity.",
+        "year": 2022,
+        "doi": "10.5979/rn.00001",
+        "url": "https://papers.research-nexus.org/supply-chain-integrity-at-scale-a-systematic-review",
+        "citationCount": 0,
+        "referenceCount": 0,
+        "searchText": "supply chain integrity at scale: a systematic review supply chain integrity cybersecurity homomorphic encryption link prediction"
+      },
+      {
+        "id": "paper-0002",
+        "title": "Towards Robust Tactile Sensing",
+        "abstract": "Results reported for Tactile Sensing are difficult to compare because baselines differ between papers. We derive bounds relating spectroscopy to observed error and use them to design a practical spectral clustering procedure. Across 3 independent settings the method improves on strong baselines while using 21 percent less compute. These findings suggest that reporting standards for Tactile Sensing need to change.",
+        "year": 2023,
+        "doi": "10.3869/rn.00002",
+        "url": "https://papers.research-nexus.org/towards-robust-tactile-sensing",
+        "citationCount": 0,
+        "referenceCount": 0,
+        "searchText": "towards robust tactile sensing tactile sensing robotics spectroscopy spectral clustering"
+      }
+    ],
+    "universities": [
+      {
+        "id": "university-0001",
+        "name": "Massachusetts Institute of Technology",
+        "country": "United States",
+        "city": "Cambridge",
+        "type": "Private Research",
+        "foundedYear": 1861,
+        "ranking": 1,
+        "website": "https://www.massachusetts-institute-of-t.edu",
+        "researcherCount": 0,
+        "searchText": "massachusetts institute of technology cambridge united states private research"
+      },
+      {
+        "id": "university-0002",
+        "name": "Stanford University",
+        "country": "United States",
+        "city": "Stanford",
+        "type": "Private Research",
+        "foundedYear": 1885,
+        "ranking": 2,
+        "website": "https://www.stanford-university.edu",
+        "researcherCount": 0,
+        "searchText": "stanford university stanford united states private research"
+      }
+    ],
+    "topics": [
+      {
+        "id": "topic-0001",
+        "name": "Graph Neural Networks",
+        "field": "Artificial Intelligence",
+        "description": "Graph Neural Networks studies how artificial intelligence problems can be addressed with physics-informed architectures. The area has attracted sustained attention since 2017.",
+        "emergenceYear": 2017,
+        "paperCount": 0,
+        "searchText": "graph neural networks artificial intelligence"
+      },
+      {
+        "id": "topic-0002",
+        "name": "Retrieval-Augmented Generation",
+        "field": "Artificial Intelligence",
+        "description": "Retrieval-Augmented Generation studies how artificial intelligence problems can be addressed with end-to-end optimisation. The area has attracted sustained attention since 2021.",
+        "emergenceYear": 2021,
+        "paperCount": 0,
+        "searchText": "retrieval-augmented generation artificial intelligence"
+      }
+    ],
+    "keywords": [
+      {
+        "id": "keyword-0001",
+        "term": "attention mechanism",
+        "paperCount": 0,
+        "searchText": "attention mechanism"
+      },
+      {
+        "id": "keyword-0002",
+        "term": "transformer",
+        "paperCount": 0,
+        "searchText": "transformer"
+      },
+      {
+        "id": "keyword-0003",
+        "term": "contrastive learning",
+        "paperCount": 0,
+        "searchText": "contrastive learning"
+      }
+    ],
+    "conferences": [
+      {
+        "id": "conference-0001",
+        "name": "Conference on Neural Information Processing Systems",
+        "acronym": "NeurIPS",
+        "field": "Artificial Intelligence",
+        "tier": "A*",
+        "foundedYear": 1987,
+        "location": "Vancouver, Canada",
+        "website": "https://neurips.org",
+        "paperCount": 0,
+        "searchText": "conference on neural information processing systems neurips artificial intelligence a*"
+      },
+      {
+        "id": "conference-0002",
+        "name": "International Conference on Machine Learning",
+        "acronym": "ICML",
+        "field": "Artificial Intelligence",
+        "tier": "A*",
+        "foundedYear": 1980,
+        "location": "Vienna, Austria",
+        "website": "https://icml.org",
+        "paperCount": 0,
+        "searchText": "international conference on machine learning icml artificial intelligence a*"
+      }
+    ],
+    "journals": [
+      {
+        "id": "journal-0001",
+        "name": "Nature",
+        "publisher": "Springer Nature",
+        "issn": "2025-0000",
+        "field": "Multidisciplinary",
+        "impactFactor": 64.8,
+        "website": "https://www.nature.org",
+        "paperCount": 0,
+        "searchText": "nature springer nature multidisciplinary"
+      },
+      {
+        "id": "journal-0002",
+        "name": "Science",
+        "publisher": "AAAS",
+        "issn": "2025-0007",
+        "field": "Multidisciplinary",
+        "impactFactor": 56.9,
+        "website": "https://www.science.org",
+        "paperCount": 0,
+        "searchText": "science aaas multidisciplinary"
+      }
+    ],
+    "datasets": [
+      {
+        "id": "dataset-0001",
+        "name": "OpenGraph-Bench",
+        "domain": "Artificial Intelligence",
+        "license": "CC BY 4.0",
+        "sizeGb": 240,
+        "releaseYear": 2019,
+        "url": "https://data.research-nexus.org/opengraph-bench",
+        "paperCount": 0,
+        "searchText": "opengraph-bench artificial intelligence cc by 4.0"
+      },
+      {
+        "id": "dataset-0002",
+        "name": "MultiModal-10M",
+        "domain": "Artificial Intelligence",
+        "license": "CC BY-NC 4.0",
+        "sizeGb": 1840,
+        "releaseYear": 2021,
+        "url": "https://data.research-nexus.org/multimodal-10m",
+        "paperCount": 0,
+        "searchText": "multimodal-10m artificial intelligence cc by-nc 4.0"
+      }
+    ],
+    "projects": [
+      {
+        "id": "project-0001",
+        "title": "Joint Task Force on Sustainable Mechanistic Interpretability",
+        "summary": "Trains early-career researchers while advancing methodology in Mechanistic Interpretability.",
+        "status": "Planned",
+        "startYear": 2023,
+        "endYear": 2027,
+        "budgetUsd": 8750000,
+        "searchText": "joint task force on sustainable mechanistic interpretability mechanistic interpretability artificial intelligence"
+      },
+      {
+        "id": "project-0002",
+        "title": "Joint Task Force on Open Spatial Omics",
+        "summary": "Delivers open reference implementations and evaluation harnesses for Spatial Omics.",
+        "status": "Active",
+        "startYear": 2022,
+        "endYear": 2025,
+        "budgetUsd": 41250000,
+        "searchText": "joint task force on open spatial omics spatial omics computational biology"
+      }
+    ],
+    "fundingAgencies": [
+      {
+        "id": "agency-0001",
+        "name": "National Science Foundation",
+        "country": "United States",
+        "type": "Government",
+        "annualBudgetUsd": 9900000000,
+        "website": "https://www.national-science-foundation.org",
+        "searchText": "national science foundation united states government"
+      },
+      {
+        "id": "agency-0002",
+        "name": "National Institutes of Health",
+        "country": "United States",
+        "type": "Government",
+        "annualBudgetUsd": 47000000000,
+        "website": "https://www.national-institutes-of-health.org",
+        "searchText": "national institutes of health united states government"
+      }
+    ]
+  },
+  "relationships": {
+    "authored": [
+      {
+        "from": "author-0294",
+        "to": "paper-0001",
+        "props": {
+          "position": 1,
+          "isCorresponding": true
+        }
+      },
+      {
+        "from": "author-0031",
+        "to": "paper-0001",
+        "props": {
+          "position": 2,
+          "isCorresponding": false
+        }
+      },
+      {
+        "from": "author-0112",
+        "to": "paper-0002",
+        "props": {
+          "position": 1,
+          "isCorresponding": true
+        }
+      }
+    ],
+    "cites": [
+      {
+        "from": "paper-0062",
+        "to": "paper-0205",
+        "props": {
+          "year": 2016
+        }
+      },
+      {
+        "from": "paper-0062",
+        "to": "paper-0164",
+        "props": {
+          "year": 2016
+        }
+      },
+      {
+        "from": "paper-0062",
+        "to": "paper-0273",
+        "props": {
+          "year": 2016
+        }
+      }
+    ],
+    "affiliatedWith": [
+      {
+        "from": "author-0001",
+        "to": "university-0042",
+        "props": {
+          "since": 2000,
+          "role": "Group Lead",
+          "isPrimary": true
+        }
+      },
+      {
+        "from": "author-0001",
+        "to": "university-0035",
+        "props": {
+          "since": 2008,
+          "role": "Visiting Researcher",
+          "isPrimary": false
+        }
+      }
+    ],
+    "hasTopic": [
+      {
+        "from": "paper-0001",
+        "to": "topic-0063",
+        "props": {
+          "relevance": 0.97
+        }
+      },
+      {
+        "from": "paper-0002",
+        "to": "topic-0080",
+        "props": {
+          "relevance": 0.88
+        }
+      }
+    ],
+    "hasKeyword": [
+      {
+        "from": "paper-0001",
+        "to": "keyword-0044",
+        "props": {}
+      },
+      {
+        "from": "paper-0001",
+        "to": "keyword-0105",
+        "props": {}
+      }
+    ],
+    "usesDataset": [
+      {
+        "from": "paper-0002",
+        "to": "dataset-0032",
+        "props": {
+          "usageType": "evaluation"
+        }
+      },
+      {
+        "from": "paper-0003",
+        "to": "dataset-0036",
+        "props": {
+          "usageType": "ablation"
+        }
+      }
+    ],
+    "presentedAt": [
+      {
+        "from": "paper-0002",
+        "to": "conference-0029",
+        "props": {
+          "year": 2023,
+          "track": "Poster"
+        }
+      },
+      {
+        "from": "paper-0003",
+        "to": "conference-0034",
+        "props": {
+          "year": 2020,
+          "track": "Poster"
+        }
+      }
+    ],
+    "publishedIn": [
+      {
+        "from": "paper-0001",
+        "to": "journal-0002",
+        "props": {
+          "year": 2022,
+          "volume": 49,
+          "issue": 2
+        }
+      },
+      {
+        "from": "paper-0005",
+        "to": "journal-0025",
+        "props": {
+          "year": 2024,
+          "volume": 50,
+          "issue": 7
+        }
+      }
+    ],
+    "includes": [
+      {
+        "from": "project-0016",
+        "to": "paper-0001",
+        "props": {}
+      },
+      {
+        "from": "project-0007",
+        "to": "paper-0002",
+        "props": {}
+      }
+    ],
+    "funds": [
+      {
+        "from": "agency-0007",
+        "to": "project-0001",
+        "props": {
+          "amountUsd": 8750000,
+          "grantNumber": "ERC-383319",
+          "startYear": 2023
+        }
+      },
+      {
+        "from": "agency-0022",
+        "to": "project-0002",
+        "props": {
+          "amountUsd": 18975000,
+          "grantNumber": "RGP-183359",
+          "startYear": 2022
+        }
+      }
+    ],
+    "relatedKeywords": [
+      {
+        "from": "keyword-0019",
+        "to": "keyword-0054",
+        "props": {
+          "strength": 0.94,
+          "kind": "synonym"
+        }
+      },
+      {
+        "from": "keyword-0019",
+        "to": "keyword-0007",
+        "props": {
+          "strength": 0.36,
+          "kind": "broader"
+        }
+      }
+    ],
+    "relatedTopics": [
+      {
+        "from": "topic-0001",
+        "to": "topic-0003",
+        "props": {
+          "strength": 0.69
+        }
+      },
+      {
+        "from": "topic-0001",
+        "to": "topic-0002",
+        "props": {
+          "strength": 0.8
+        }
+      }
+    ],
+    "partnersWith": [
+      {
+        "from": "university-0001",
+        "to": "university-0019",
+        "props": {
+          "since": 2018,
+          "focus": "Open data consortium"
+        }
+      },
+      {
+        "from": "university-0001",
+        "to": "university-0003",
+        "props": {
+          "since": 2013,
+          "focus": "Climate observation network"
+        }
+      }
+    ]
+  }
+}

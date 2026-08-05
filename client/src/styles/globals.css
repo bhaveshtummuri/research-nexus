@@ -1,0 +1,206 @@
+@import url('https://rsms.me/inter/inter.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Design tokens.
+ *
+ * Dark is the default because the graph canvas reads best against a deep
+ * background; light is a first-class alternative rather than an afterthought.
+ * Every colour the app uses resolves through one of these variables, so the two
+ * themes can never drift apart.
+ */
+@layer base {
+  :root {
+    --background: 220 24% 5%;
+    --foreground: 220 14% 96%;
+
+    --surface: 222 22% 8%;
+    --surface-muted: 222 20% 11%;
+    --surface-raised: 222 20% 13%;
+
+    --muted: 222 16% 16%;
+    --muted-foreground: 220 10% 62%;
+
+    --border: 222 16% 18%;
+    --input: 222 16% 18%;
+    --ring: 243 75% 66%;
+
+    --primary: 243 75% 66%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 243 60% 22%;
+
+    --accent: 222 20% 15%;
+    --accent-foreground: 220 14% 96%;
+
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 152 60% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 30 30% 12%;
+
+    --shadow: 220 40% 2%;
+    --radius: 0.7rem;
+
+    --graph-author: 243 75% 68%;
+    --graph-paper: 199 89% 58%;
+    --graph-topic: 160 66% 48%;
+    --graph-university: 38 92% 60%;
+    --graph-conference: 330 76% 66%;
+    --graph-journal: 268 74% 68%;
+    --graph-dataset: 187 72% 52%;
+    --graph-funding: 12 82% 62%;
+    --graph-project: 76 60% 52%;
+    --graph-keyword: 220 10% 62%;
+  }
+
+  :root.light {
+    --background: 220 30% 99%;
+    --foreground: 222 32% 12%;
+
+    --surface: 0 0% 100%;
+    --surface-muted: 220 26% 97%;
+    --surface-raised: 0 0% 100%;
+
+    --muted: 220 22% 94%;
+    --muted-foreground: 220 12% 42%;
+
+    --border: 220 18% 89%;
+    --input: 220 18% 89%;
+    --ring: 243 70% 58%;
+
+    --primary: 243 70% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 243 92% 96%;
+
+    --accent: 220 26% 96%;
+    --accent-foreground: 222 32% 12%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 152 55% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 32 88% 45%;
+    --warning-foreground: 0 0% 100%;
+
+    --shadow: 220 40% 40%;
+
+    --graph-author: 243 70% 56%;
+    --graph-paper: 199 85% 44%;
+    --graph-topic: 160 62% 36%;
+    --graph-university: 32 88% 46%;
+    --graph-conference: 330 70% 52%;
+    --graph-journal: 268 66% 55%;
+    --graph-dataset: 187 70% 38%;
+    --graph-funding: 12 76% 50%;
+    --graph-project: 84 52% 38%;
+    --graph-keyword: 220 12% 42%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings:
+      'cv02' on,
+      'cv03' on,
+      'cv04' on,
+      'ss01' on;
+  }
+
+  ::selection {
+    @apply bg-primary/30;
+  }
+
+  /* Slim scrollbars so dense tables and the sidebar stay visually quiet. */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full border-4 border-transparent bg-muted bg-clip-content;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/40 bg-clip-content;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Subtle vertical gradient used on cards and the app shell. */
+  .surface-gradient {
+    background-image: linear-gradient(
+      180deg,
+      hsl(var(--surface-raised)) 0%,
+      hsl(var(--surface)) 100%
+    );
+  }
+
+  /* Grid backdrop behind the dashboard hero and the graph canvas. */
+  .grid-backdrop {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+  }
+
+  /* Placeholder nodes in the graph skeleton. The transform is part of the
+     keyframe because it also does the centring — a separate transform utility
+     would be overwritten the moment the animation starts. */
+  @keyframes node-pulse {
+    0%,
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      opacity: 0.45;
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+  }
+
+  .node-pulse {
+    transform: translate(-50%, -50%);
+    animation: node-pulse 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .skeleton-shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--foreground) / 0.06),
+      transparent
+    );
+    @apply animate-shimmer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

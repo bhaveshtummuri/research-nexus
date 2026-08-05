@@ -1,0 +1,56 @@
+# ---------------------------------------------------------------------------
+# Render blueprint - deploys the API as a web service.
+#
+#   1. Push this repository to GitHub.
+#   2. In Render, choose "New > Blueprint" and point it at the repo.
+#   3. Fill in the four COGNODB_* values marked `sync: false` from your
+#      CognoDB instance.
+#
+# The frontend deploys separately to Vercel (see vercel.json); pointing both at
+# one platform is possible but a static host serves the client better and keeps
+# the free API instance from spending its cycles on asset delivery.
+# ---------------------------------------------------------------------------
+services:
+  - type: web
+    name: research-nexus-api
+    runtime: node
+    plan: free
+    region: frankfurt
+    branch: main
+    buildCommand: npm ci && npm run build:server
+    startCommand: npm run start --workspace server
+    # Render restarts the instance if this endpoint stops answering. It is the
+    # liveness probe, not the readiness one, so a brief database outage does not
+    # trigger a restart loop.
+    healthCheckPath: /api/v1/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: '20.11.0'
+      - key: PORT
+        value: '4000'
+      - key: API_PREFIX
+        value: /api/v1
+      - key: LOG_LEVEL
+        value: info
+      - key: MAX_PAGE_SIZE
+        value: '100'
+      - key: MAX_GRAPH_NODES
+        value: '400'
+      - key: RATE_LIMIT_WINDOW_MS
+        value: '60000'
+      - key: RATE_LIMIT_MAX_REQUESTS
+        value: '300'
+      # Set to the deployed frontend origin once Vercel has assigned it.
+      - key: CORS_ORIGINS
+        sync: false
+      - key: COGNODB_URI
+        sync: false
+      - key: COGNODB_USERNAME
+        sync: false
+      - key: COGNODB_PASSWORD
+        sync: false
+      - key: COGNODB_DATABASE
+        sync: false

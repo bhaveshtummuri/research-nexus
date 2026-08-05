@@ -1,0 +1,50 @@
+# ---------------------------------------------------------------------------
+# Local development stack.
+#
+#   docker compose up -d          start the graph database and the API
+#   npm run db:schema             apply constraints and indexes
+#   npm run db:seed               load the demo graph
+#   npm run dev:client            start the frontend against it
+#
+# The database service runs a Bolt-compatible engine. Point `image` at your
+# CognoDB distribution if you have one; the Neo4j image is used here because it
+# speaks the same protocol and the same OpenCypher dialect this project targets.
+# ---------------------------------------------------------------------------
+services:
+  cognodb:
+    image: neo4j:5-community
+    container_name: research-nexus-db
+    ports:
+      - '7474:7474' # HTTP browser
+      - '7687:7687' # Bolt
+    environment:
+      NEO4J_AUTH: neo4j/research-nexus
+      NEO4J_server_memory_heap_max__size: 1G
+      NEO4J_server_memory_pagecache_size: 512M
+    volumes:
+      - graph-data:/data
+    healthcheck:
+      test: ['CMD-SHELL', 'wget -qO- http://localhost:7474 || exit 1']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  api:
+    build: .
+    container_name: research-nexus-api
+    ports:
+      - '4000:4000'
+    environment:
+      NODE_ENV: production
+      PORT: '4000'
+      COGNODB_URI: bolt://cognodb:7687
+      COGNODB_USERNAME: neo4j
+      COGNODB_PASSWORD: research-nexus
+      CORS_ORIGINS: http://localhost:5173,http://localhost:4173
+    depends_on:
+      cognodb:
+        condition: service_healthy
+
+volumes:
+  graph-data:
