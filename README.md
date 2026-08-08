@@ -814,8 +814,7 @@ Set `PORT` in `.env` for the API; pass `--port` to Vite for the client.
 
 ## Screenshots
 
-Captures live in [`screenshots/`](screenshots/), with a capture guide and the
-full required-shot list in [`screenshots/README.md`](screenshots/README.md).
+Captures of every screen live in [`screenshots/`](screenshots/).
 A **2–3 minute demo script** covering every screen is in
 [`docs/demo-script.md`](docs/demo-script.md).
 

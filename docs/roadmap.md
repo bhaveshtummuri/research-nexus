@@ -899,9 +899,8 @@ A repository that explains itself to a reviewer who has never seen it.
 ### What remains
 
 Screenshots need a browser against a seeded database; the video needs a
-deployment. [`screenshots/README.md`](../screenshots/README.md) documents the
-exact routes and capture settings — and because the seed is deterministic,
-captures taken anywhere show identical content.
+deployment. Captures live in [`screenshots/`](../screenshots/) — and because the
+seed is deterministic, captures taken anywhere show identical content.
 
 ### Deliverables
 
